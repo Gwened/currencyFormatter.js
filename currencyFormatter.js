@@ -1077,6 +1077,7 @@ OSREC.CurrencyFormatter =
 		pattern 	= isUndefined(p.pattern) ? locale.p : p.pattern;
 		decimal		= isUndefined(p.decimal) ? locale.d : p.decimal;
 		group 		= isUndefined(p.group) ? locale.g : p.group;
+		round		= isUndefined(p.round) ? false : p.round;
 		
 		//console.log(locale);
 		
@@ -1148,7 +1149,7 @@ OSREC.CurrencyFormatter =
 			
 			var encodedPattern = 
 			{ 
-				decimalPlaces: decimalPlaces,
+				decimalPlaces: round ? 0 : decimalPlaces,
 				frontPadding: frontPadding,
 				backPadding: backPadding,
 				groupLengths: groupLengths,
